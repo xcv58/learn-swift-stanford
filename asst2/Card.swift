@@ -11,7 +11,7 @@ import Foundation
 class Card {
     var number: String
     var suit: String = ""
-    var clicked: Bool = false
+    var selected: Bool = false
     var matched: Bool = false
 
     init(number: String, suit: String) {
@@ -25,6 +25,38 @@ class Card {
         } else {
             self.suit = ""
         }
+    }
+    
+    func isSelected() -> Bool {
+        return self.selected
+    }
+    
+    func select() {
+        self.selected = true
+    }
+    
+    func unSelect() {
+        self.selected = false
+    }
+    
+    func isMatched() -> Bool {
+        return self.matched
+    }
+    
+    func match() {
+        self.unSelect()
+        self.matched = true
+    }
+    
+    func unMatch() {
+        self.matched = false
+    }
+    
+    func match(card: Card) -> Bool {
+        if (self.number == card.number) {
+            return true
+        }
+        return false
     }
     
     func getTitle() -> String {

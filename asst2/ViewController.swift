@@ -9,28 +9,74 @@
 import UIKit
 
 class ViewController: UIViewController {
-                            
-    @IBOutlet weak var card: UIButton!
+    
+    @IBOutlet var cardButtons: [UIButton]!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var scoreLabel: UILabel!
     
     var flipCount: Int = 0
     var deck: Deck = Deck()
+    var matcher: Matcher = Matcher(number: 20)
     
     @IBAction func flipCard(sender: UIButton) {
-        if (card.currentTitle == nil || card.currentTitle == "") {
-            var tmpCard: Card = deck.drawRandomCard()
-            card.setTitle(tmpCard.getTitle(), forState: .Normal)
-            card.setBackgroundImage(UIImage(named: "cardFront"), forState: .Normal)
-        } else {
-            card.setTitle("", forState: .Normal)
-            card.setBackgroundImage(UIImage(named: "cardBack"), forState: .Normal)
+        let index = getButtonIndex(sender)
+        
+        if (sender == startButton) {
+            matcher = Matcher(number: cardButtons.count)
+            flipCount = 0
+            updateView()
+            return
         }
-        updateFlip()
+        
+        let card: Card = matcher.getCardByIndex(index)
+
+        if (sender.currentTitle == nil || sender.currentTitle == "") {
+            sender.setTitle(card.getTitle(), forState: .Normal)
+            sender.setBackgroundImage(UIImage(named: "cardFront"), forState: .Normal)
+            card.select()
+        } else {
+            sender.setTitle("", forState: .Normal)
+            sender.setBackgroundImage(UIImage(named: "cardBack"), forState: .Normal)
+            card.unSelect()
+        }
+        matcher.checkMatch(index)
+        flipCount++
+        updateView()
+    }
+    
+    func updateView() {
+        for i in 0..<cardButtons.count {
+            var button = cardButtons[i]
+            let card = matcher.getCardByIndex(i)
+            if card.isMatched() {
+                button.enabled = false
+                continue
+            } else {
+                button.enabled = true
+            }
+            if card.isSelected() {
+                button.setTitle(card.getTitle(), forState: .Normal)
+                button.setBackgroundImage(UIImage(named: "cardFront"), forState: .Normal)
+            } else {
+                button.setTitle("", forState: .Normal)
+                button.setBackgroundImage(UIImage(named: "cardBack"), forState: .Normal)
+            }
+        }
+        scoreLabel.text = "Score: \(matcher.getScore())"
+        flipLabel.text = "Flip: \(flipCount)"
     }
     
     @IBOutlet weak var flipLabel: UILabel!
-    func updateFlip() {
-        flipCount++
-        flipLabel.text = "Flip: \(flipCount)"
+    
+    func getButtonIndex(button: UIButton) -> Int{
+        var index: Int = -1
+        for var i = 0; i < cardButtons.count; i++ {
+            if cardButtons[i] == button {
+                index = i
+                break;
+            }
+        }
+        return index
     }
     
     override func viewDidLoad() {
