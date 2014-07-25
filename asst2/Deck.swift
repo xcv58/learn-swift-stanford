@@ -52,7 +52,8 @@ class Deck {
     
     func drawRandomCard() -> Card {
         if (cards.count > 0) {
-            let randomSeed = random() % cards.count
+//            let randomSeed = random() % cards.count
+            let randomSeed = Int(arc4random_uniform(UInt32(cards.count)))
             var tmpCard: Card = cards[randomSeed]
             cards.removeAtIndex(randomSeed)
             return tmpCard

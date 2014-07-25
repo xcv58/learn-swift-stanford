@@ -38,7 +38,6 @@ class Matcher {
                 tmpCard = deck.drawRandomCard()
             }
             cards.insert(tmpCard, atIndex: random() % cards.count)
-//            cards.append(tmpCard)
         }
     }
     
