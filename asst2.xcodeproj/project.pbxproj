@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF2C72A91981B6FE0077EEEC /* card.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2C72A81981B6FE0077EEEC /* card.swift */; };
+		DF2C72AB1981CB8A0077EEEC /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2C72AA1981CB8A0077EEEC /* Deck.swift */; };
 		DF89CF101981B42A008FCAD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF89CF0F1981B42A008FCAD0 /* AppDelegate.swift */; };
 		DF89CF121981B42A008FCAD0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF89CF111981B42A008FCAD0 /* ViewController.swift */; };
 		DF89CF151981B42A008FCAD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF89CF131981B42A008FCAD0 /* Main.storyboard */; };
@@ -25,6 +27,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DF2C72A81981B6FE0077EEEC /* card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = card.swift; sourceTree = "<group>"; };
+		DF2C72AA1981CB8A0077EEEC /* Deck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		DF89CF0A1981B42A008FCAD0 /* asst2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = asst2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF89CF0E1981B42A008FCAD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF89CF0F1981B42A008FCAD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +82,8 @@
 				DF89CF0F1981B42A008FCAD0 /* AppDelegate.swift */,
 				DF89CF111981B42A008FCAD0 /* ViewController.swift */,
 				DF89CF131981B42A008FCAD0 /* Main.storyboard */,
+				DF2C72A81981B6FE0077EEEC /* card.swift */,
+				DF2C72AA1981CB8A0077EEEC /* Deck.swift */,
 				DF89CF161981B42A008FCAD0 /* Images.xcassets */,
 				DF89CF0D1981B42A008FCAD0 /* Supporting Files */,
 			);
@@ -208,6 +214,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF2C72AB1981CB8A0077EEEC /* Deck.swift in Sources */,
+				DF2C72A91981B6FE0077EEEC /* card.swift in Sources */,
 				DF89CF121981B42A008FCAD0 /* ViewController.swift in Sources */,
 				DF89CF101981B42A008FCAD0 /* AppDelegate.swift in Sources */,
 			);
@@ -397,6 +405,7 @@
 				DF89CF281981B42B008FCAD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DF89CF291981B42B008FCAD0 /* Build configuration list for PBXNativeTarget "asst2Tests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +414,7 @@
 				DF89CF2B1981B42B008FCAD0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
